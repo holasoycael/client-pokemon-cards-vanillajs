@@ -1,1 +1,7 @@
-console.log('NOVO PROJETO!')
+console.log('NOVO PROJETO!'
+
+)
+
+const data = 'ola';
+
+

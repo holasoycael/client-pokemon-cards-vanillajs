@@ -2,5 +2,13 @@
   "name": "client-pokemon-cards-vanillajs",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "eslint": "^8.20.0",
+    "prettier": "^2.7.1",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
 }
