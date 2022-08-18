@@ -24,4 +24,16 @@ window.onload = async () => {
     </div>
   `).join('\n')
 
+
+
+  const cardAll = document.querySelectorAll(".card")
+  
+  cardAll.forEach(function(abobrinha) {
+    abobrinha.addEventListener('click', function(event) {
+      console.log (event)
+    })
+  })
+
+  console.log (cardAll)
+
 }
