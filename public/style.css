@@ -41,12 +41,9 @@
 }
 
 .modal__content {
-  background: rgb(255, 255, 255);
+  background: #464646;
   z-index: 99;
   position: relative;
-  /* width: calc(100vw - 3.6rem); */
-  min-width: 200px;
-  max-width: 300px;
   overflow: hidden;
   font-size: 1.43rem;
   padding: 1.4rem;
@@ -58,6 +55,7 @@
   justify-content: center;
   flex-direction: column;
   display: flex;
+  height: 100%;
 }
 
 .modal--open {
@@ -86,4 +84,26 @@
   position: fixed;
   background: rgba(255, 255, 255, 0);
   cursor: pointer;
+}
+
+.pokemon__imagem {
+  position: relative;
+}
+.pokemon__imagem {
+  position: relative;
+  z-index: 1;
+}
+.pokemon__imagem::after {
+  content: "";
+  width: 100%;
+  height: 300px;
+  background-image: url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png);
+  display: block;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  top: 0;
+  z-index: 0;
+  filter: blur(25px);
 }
