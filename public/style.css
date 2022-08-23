@@ -11,3 +11,79 @@
   padding: 1rem;
   position: relative;
 }
+
+.modal {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  transition: all 0.25s linear;
+  outline: 0;
+  margin-bottom: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal::after {
+  content: '';
+  background: rgba(0,0,0, 0.55);
+  width: 100vw;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal__content {
+  background: rgb(255, 255, 255);
+  z-index: 99;
+  position: relative;
+  /* width: calc(100vw - 3.6rem); */
+  min-width: 200px;
+  max-width: 300px;
+  overflow: hidden;
+  font-size: 1.43rem;
+  padding: 1.4rem;
+  box-shadow: rgb(0 0 0 / 24%) 0px 0px 15px 0px;
+  border-radius: 5px;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.modal--open {
+  opacity: 1;
+}
+
+.modal--open {
+  visibility: visible;
+}
+
+.modal--close {
+  opacity: 0;
+}
+.modal--close {
+  visibility: hidden;
+}
+
+.modal__close {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 100vw;
+  height: 100%;
+  position: fixed;
+  background: rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
