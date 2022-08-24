@@ -7,27 +7,26 @@ window.onload = async () => {
   const pokemons = getPokemons.results
 
   const filterPokemons = pokemons.filter((_, index) => index < 50)
+  
+  const responsePokemons = await Promise.all(filterPokemons.map(async (abobrinha) => {
+    const pokemon = await P.getPokemonByName(abobrinha.name)
 
-  const responsePokemons = await Promise.all(Array.from(filterPokemons, async(data) => {
-    const pokemon = await P.getPokemonByName(data.name)
-    console.log (pokemon)
-     
     return {
       id: pokemon.id,
       name: pokemon.name,
-      image: pokemon.sprites.other.home.front_default
+      image: pokemon.sprites.other.home.front_default,
+      type: pokemon.types.map(({ type }) => type.name)
     }
   }))
 
-  html.innerHTML = responsePokemons.map((pokemon) => {
-    // console.log(pokemon)
-    return `
-      <div class="card" data-id="${pokemon.id}">
-        <img src="${pokemon.image}" width="50" height="50" />
-        <span>${pokemon.name}</span>
-      </div>
-    `
-  }).join('\n')
+  const cardsHtml = responsePokemons.map((pokemon) => `
+    <div class="card" data-id="${pokemon.id}">
+      <img src="${pokemon.image}" width="50" height="50" />
+      <span>${pokemon.name}</span>
+    </div>
+  `)
+
+  html.innerHTML = cardsHtml.join('\n')
 
   // NOTE: Evento para abrir o modal ao clicar no card
   const cardAll = document.querySelectorAll(".card")
@@ -40,7 +39,7 @@ window.onload = async () => {
       const useId = parseFloat(this.dataset.id)
       const pokemon = responsePokemons.find((data) => data.id === useId)
       const modal__content = document.querySelector('.modal__content')
-      console.log(pokemon)
+      // console.log(pokemon)
 
       modal__content.innerHTML = `
         <div class"pokemon">
@@ -53,15 +52,20 @@ window.onload = async () => {
 
           <div class="pokemon__main">
             <div class="pokemon__imagem">
+              <div class="pokemon__blur" style="background-image: url(${pokemon.image});"></div>
               <img class="pokemon__imagem" src="${pokemon.image}" height="300" />
             </div>
             <div class=""pokemon__info>
               <span>${pokemon.name}</span>
+              <div>
+                ${pokemon.type.map ((type) => `
+                  <p>${type}</p>
+                `).join('\n')}
+              </div>
             </div>
 
           </div>
         </div>
-        
       `
       // eventos
       const pokemon__back = document.querySelector(".pokemon__back")
