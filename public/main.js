@@ -55,11 +55,13 @@ window.onload = async () => {
               <div class="pokemon__blur" style="background-image: url(${pokemon.image});"></div>
               <img class="pokemon__imagem" src="${pokemon.image}" height="300" />
             </div>
-            <div class=""pokemon__info>
-              <span>${pokemon.name}</span>
-              <div>
+            <div class="pokemon__info">
+              <span class="pokemon__name">${pokemon.name}</span>
+              <div class="pokemon__types">
                 ${pokemon.type.map ((type) => `
-                  <p>${type}</p>
+                  <p class="pokemon__typeName pokemon__typeName--${type}">
+                    ${type}
+                  </p>
                 `).join('\n')}
               </div>
             </div>

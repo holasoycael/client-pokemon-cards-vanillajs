@@ -1,3 +1,62 @@
+/*----------- SETTINGS ----------*/
+:root {
+  font-size: 50%;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-oswald: 'Oswald',arial,helvetica,sans-serif;
+  --color-background: #ffffff;
+  --color-white: #ffffff;
+  --color-clean: #e8e8e8;
+  --color-gray: #999999;
+  --color-dark: #a9a9a9;
+  --color-dark-gray: #333333;
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  list-style: none;
+  border: none;
+  text-decoration: none;
+}
+*, ::after, ::before {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-box-sizing: border-box; /* Safari and Chrome */
+  -moz-box-sizing: border-box; /* Firefox */
+  -ms-box-sizing: border-box; /* IE 9 */
+  -o-box-sizing: border-box; /* Opera */
+  box-sizing: border-box;
+}
+::after, ::before {
+  white-space: pre-wrap;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0, 0.15);
+  border-radius: 0;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0);
+}
+
+
+body,
+input,
+button,
+textarea {
+  font: 500 1.6rem var(--font-poppins);
+}
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+input[type="radio"], input[type="checkbox"] {
+  display: none;
+}
 
 
 .card {
@@ -86,6 +145,9 @@
   background: rgba(255, 255, 255, 0);
   cursor: pointer;
 }
+.pokemon__main > *:not(:last-child) {
+  margin-bottom: 30px;
+}
 
 .pokemon__imagem {
   position: relative;
@@ -102,4 +164,50 @@
   top: 0;
   z-index: 0;
   filter: blur(25px);
+}
+
+.pokemon__info {
+  display: flex;
+  flex-direction: column;
+}
+.pokemon__info > *:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+span.pokemon__name {
+  display: block;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+}
+
+
+.pokemon__types {
+  display: flex;
+  justify-content: center;
+}
+.pokemon__types > *:not(:last-child) {
+  margin-right: 16px;
+}
+
+p.pokemon__typeName {
+  text-align: center;
+  border-radius: 20px;
+  padding: 6px 16px;
+  
+}
+p.pokemon__typeName--grass {
+  color: #1aff66;
+  border: 1px solid #1aff66;
+}
+
+p.pokemon__typeName--poison {
+  color: #c417da;
+  border: 1px solid #c417da;
+}
+
+p.pokemon__typeName--fire {
+  color: #d8793a;
+  border: 1px solid #d8793a;
 }
