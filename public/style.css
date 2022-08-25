@@ -211,3 +211,27 @@ p.pokemon__typeName--fire {
   color: #d8793a;
   border: 1px solid #d8793a;
 }
+
+.pokemon__head {
+  display: flex;
+}
+button.pokemon__back {
+  color: #fff;
+  background: transparent;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0 9px -1px rgb(0 0 0 / 30%);
+  font-size: 20px;
+}
+span.pokemon__id {
+  width: 100%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

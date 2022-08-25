@@ -1,5 +1,9 @@
 const P = new Pokedex.Pokedex()
 
+function capitalizeFirstLetter(value) {
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
 window.onload = async () => {
   const html = document.querySelector('.wrapper')
 
@@ -13,7 +17,7 @@ window.onload = async () => {
 
     return {
       id: pokemon.id,
-      name: pokemon.name,
+      name: capitalizeFirstLetter(pokemon.name),
       image: pokemon.sprites.other.home.front_default,
       type: pokemon.types.map(({ type }) => type.name)
     }
@@ -39,15 +43,14 @@ window.onload = async () => {
       const useId = parseFloat(this.dataset.id)
       const pokemon = responsePokemons.find((data) => data.id === useId)
       const modal__content = document.querySelector('.modal__content')
-      // console.log(pokemon)
 
       modal__content.innerHTML = `
-        <div class"pokemon">
+        <div class="pokemon">
           <div class="pokemon__head">
             <button class="pokemon__back" type="button">
               <ion-icon name="chevron-back-outline"></ion-icon>
             </button>
-            <span>#${pokemon.id}</span>
+            <span class="pokemon__id">#${pokemon.id}</span>
           </div>
 
           <div class="pokemon__main">
@@ -60,7 +63,7 @@ window.onload = async () => {
               <div class="pokemon__types">
                 ${pokemon.type.map ((type) => `
                   <p class="pokemon__typeName pokemon__typeName--${type}">
-                    ${type}
+                    ${capitalizeFirstLetter(type)} 
                   </p>
                 `).join('\n')}
               </div>
